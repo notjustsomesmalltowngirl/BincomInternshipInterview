@@ -76,15 +76,18 @@ WSGI_APPLICATION = 'bincomtest.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+import dj_database_url
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bincom_test',
-        'USER': 'root',
-        'PASSWORD': os.getenv('db_password'),
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'bincom_test',
+        # 'USER': 'root',
+        # 'PASSWORD': os.getenv('db_password'),
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306',
     }
 }
 
