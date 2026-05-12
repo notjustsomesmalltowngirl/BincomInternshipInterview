@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+import dj_database_url
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -76,22 +77,28 @@ WSGI_APPLICATION = 'bincomtest.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-import dj_database_url
+# DATABASES = {
+#     'default': {
+#
+#         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#
+#         # 'ENGINE': 'django.db.backends.mysql',
+#         # 'NAME': 'bincom_test',
+#         # 'USER': 'root',
+#         # 'PASSWORD': os.getenv('db_password'),
+#         # 'HOST': '127.0.0.1',
+#         # 'PORT': '3306',
+#     }
+# }
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise Exception("DATABASE_URL not set in environment variables")
+
 DATABASES = {
-    'default': {
-
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'bincom_test',
-        # 'USER': 'root',
-        # 'PASSWORD': os.getenv('db_password'),
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3306',
-    }
+    'default': dj_database_url.parse(DATABASE_URL)
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
