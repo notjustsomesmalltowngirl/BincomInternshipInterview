@@ -18,7 +18,7 @@ class Agentname(models.Model):
     pollingunit_uniqueid = models.IntegerField()
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'agentname'
 
 
@@ -32,7 +32,7 @@ class AnnouncedLgaResults(models.Model):
     user_ip_address = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'announced_lga_results'
 
 
@@ -46,7 +46,7 @@ class AnnouncedPuResults(models.Model):
     user_ip_address = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'announced_pu_results'
 
 
@@ -60,7 +60,7 @@ class AnnouncedStateResults(models.Model):
     user_ip_address = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'announced_state_results'
 
 
@@ -74,7 +74,7 @@ class AnnouncedWardResults(models.Model):
     user_ip_address = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'announced_ward_results'
 
 
@@ -89,7 +89,7 @@ class Lga(models.Model):
     user_ip_address = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'lga'
 
 
@@ -98,7 +98,7 @@ class Party(models.Model):
     partyname = models.CharField(max_length=11)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'party'
 
 
@@ -118,7 +118,7 @@ class PollingUnit(models.Model):
     user_ip_address = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'polling_unit'
 
 
@@ -127,7 +127,7 @@ class States(models.Model):
     state_name = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'states'
 
 
@@ -142,5 +142,5 @@ class Ward(models.Model):
     user_ip_address = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'ward'
